@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Давидке 1 годик</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(#dff4ff,#eef2f5);
+    text-align:center;
+    overflow-x:hidden;
+    color:#2c3e50;
+}
+
+/* Плавное появление */
+.fade{
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeIn 1.5s forwards;
+}
+@keyframes fadeIn{
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* Поезд */
+.train{
+    position:absolute;
+    top:20px;
+    left:-400px;
+    font-size:40px;
+    animation:moveTrain 18s linear infinite;
+}
+@keyframes moveTrain{
+    0%{left:-400px;}
+    100%{left:110%;}
+}
+
+/* Самолёт */
+.plane{
+    position:absolute;
+    top:120px;
+    left:-200px;
+    font-size:28px;
+    animation:fly 20s linear infinite;
+}
+@keyframes fly{
+    0%{left:-200px;top:120px;}
+    50%{top:80px;}
+    100%{left:110%;top:120px;}
+}
+
+/* Шарики */
+.balloon{
+    position:absolute;
+    bottom:-100px;
+    font-size:28px;
+    animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+    0%{bottom:-100px;}
+    100%{bottom:110%;}
+}
+
+/* Конфетти */
+.confetti{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall 5s linear forwards;
+}
+@keyframes fall{
+    to{top:110%;}
+}
+
+.container{
+    padding:110px 20px 40px;
+}
+
+h1{
+    color:#1f4e79;
+    font-size:34px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin:20px auto;
+    max-width:420px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+.calendar{
+    width:130px;
+    margin:0 auto;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.month{
+    background:#2c6e91;
+    color:white;
+    padding:8px;
+}
+.day{
+    font-size:45px;
+    padding:15px;
+    background:#e6f7ff;
+    font-weight:bold;
+}
+
+.button{
+    display:inline-block;
+    margin:10px;
+    padding:14px 25px;
+    background:#2c6e91;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+.button:hover{
+    background:#1f4e79;
+}
+.button.red{
+    background:#7f8c8d;
+}
+.button.red:hover{
+    background:#5f6b6d;
+}
+
+.music-btn{
+    margin-top:15px;
+    background:#1f4e79;
+}
+
+#countdown{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:10px;
+    color:#1f4e79;
+}
+</style>
+</head>
+
+<body>
+
+<div class="train">🚂🚃🚃🚃</div>
+<div class="plane">✈️</div>
+
+<div class="balloon" style="left:10%;animation-duration:12s;">🎈</div>
+<div class="balloon" style="left:25%;animation-duration:15s;">🎈</div>
+<div class="balloon" style="left:50%;animation-duration:11s;">🎈</div>
+<div class="balloon" style="left:70%;animation-duration:14s;">🎈</div>
+<div class="balloon" style="left:85%;animation-duration:13s;">🎈</div>
+
+<div class="container fade">
+
+<h1>Давидке 1 годик 🎉</h1>
+
+<div style="font-size:90px;">🧸</div>
+
+<div class="card">
+Приглашаем тебя разделить с нами первый день рождения нашего Давида.
+</div>
+
+<div class="card">
+📍 Кафе "ЛАФФА"<br>
+ул. Акан Серы 28/1
+<br><br>
+<a class="button" 
+href="https://2gis.kz/almaty/geo/70000001020792892/76.951391,43.328932"
+target="_blank">
+Открыть в 2GIS 📍
+</a>
+</div>
+
+<div class="card">
+📅 Когда?
+<br><br>
+<div class="calendar">
+<div class="month">Март</div>
+<div class="day">19</div>
+</div>
+<br>
+19 марта в 13:00
+</div>
+
+<div class="card">
+⏳ До праздника осталось:
+<div id="countdown"></div>
+</div>
+
+<div class="card">
+<h3>💌 Подтвердите участие</h3>
+
+<a class="button"
+href="https://wa.me/77051469933?text=Здравствуйте!%20Мы%20придем%20на%20день%20рождения%20Давида%2019%20марта."
+target="_blank">
+✅ Приду
+</a>
+
+<a class="button red"
+href="https://wa.me/77051469933?text=Здравствуйте!%20К%20сожалению,%20мы%20не%20сможем%20прийти%20на%20день%20рождения%20Давида."
+target="_blank">
+❌ Не смогу
+</a>
+
+<p style="font-size:14px;margin-top:15px;">
+Контакт: +7 705 146 99 33
+</p>
+
+<button class="button music-btn" onclick="toggleMusic()">🎵 Включить музыку</button>
+
+</div>
+
+</div>
+
+<audio id="bgMusic" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=kids-happy-112191.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* Таймер */
+var countDownDate = new Date("Mar 19, 2026 13:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000*60*60*24));
+  var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+  var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+  document.getElementById("countdown").innerHTML =
+    days+" дн. "+hours+" ч. "+minutes+" мин.";
+  if(distance<0){
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML="Праздник уже начался 🎉";
+  }
+},1000);
+
+/* Музыка */
+function toggleMusic(){
+    var music=document.getElementById("bgMusic");
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+/* Конфетти */
+for(let i=0;i<25;i++){
+    let conf=document.createElement("div");
+    conf.className="confetti";
+    conf.style.left=Math.random()*100+"%";
+    conf.innerHTML="🎊";
+    conf.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(conf);
+}
+</script>
+
+</body>
+</html>
